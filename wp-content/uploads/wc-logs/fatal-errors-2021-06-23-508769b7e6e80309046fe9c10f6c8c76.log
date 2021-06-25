@@ -1,0 +1,45 @@
+2021-06-23T08:13:07+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($function) must be a valid callback, function "tao_custom_post_type" not found or invalid function name in E:\xampp\htdocs\wordpress\wp-includes\class-wp-hook.php:292
+Stack trace:
+#0 E:\xampp\htdocs\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#1 E:\xampp\htdocs\wordpress\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#2 E:\xampp\htdocs\wordpress\wp-settings.php(560): do_action('init')
+#3 E:\xampp\htdocs\wordpress\wp-config.php(90): require_once('E:\\xampp\\htdocs...')
+#4 E:\xampp\htdocs\wordpress\wp-load.php(37): require_once('E:\\xampp\\htdocs...')
+#5 E:\xampp\htdocs\wordpress\wp-admin\admin-ajax.php(22): require_once('E:\\xampp\\htdocs...')
+#6 {main}
+  thrown in E:\xampp\htdocs\wordpress\wp-includes\class-wp-hook.php on line 292
+
+2021-06-23T08:49:07+00:00 CRITICAL Uncaught Error: Call to undefined function the_get_ID() in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php:24
+Stack trace:
+#0 E:\xampp\htdocs\wordpress\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\wordpress\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\wordpress\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php on line 24
+
+2021-06-23T08:49:10+00:00 CRITICAL Uncaught Error: Call to undefined function the_get_ID() in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php:24
+Stack trace:
+#0 E:\xampp\htdocs\wordpress\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\wordpress\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\wordpress\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php on line 24
+
+2021-06-23T08:53:18+00:00 CRITICAL syntax error, unexpected token "endwhile", expecting end of file in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php on line 28
+
+2021-06-23T09:01:43+00:00 CRITICAL Uncaught Error: Call to undefined function dd() in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php:18
+Stack trace:
+#0 E:\xampp\htdocs\wordpress\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\wordpress\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\wordpress\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php on line 18
+
+2021-06-23T09:01:45+00:00 CRITICAL Uncaught Error: Call to undefined function dd() in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php:18
+Stack trace:
+#0 E:\xampp\htdocs\wordpress\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\wordpress\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\wordpress\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\index.php on line 18
+
