@@ -2409,7 +2409,8 @@ html[xmlns] .slides {
 .payment {
     background: url(../img/payment.png) no-repeat;
     float: left;
-    padding-right: 5px
+    padding-right: 5px;
+    margin-right: 8px;
 }
 
 .payment:hover {
@@ -2619,18 +2620,23 @@ a img.aligncenter {
     section.single .flex-control-nav {
         display: block
     }
+
     .view h2 {
         padding-top: 5px
     }
+
     .feat .span12 {
         width: 729px
     }
+
     .feat .row {
         margin-left: -15px
     }
+
     .feat .row .span4 {
         width: 226px
     }
+
     section.product article {
         margin: 0 0 18px 13px !important
     }
@@ -2640,17 +2646,21 @@ a img.aligncenter {
     .homepagecontainer {
         background: #fff
     }
+
     .top div[class*=span] {
         text-align: center !important;
         width: 100% !important
     }
+
     .top .searchcart .wrap {
         padding: 15px 0
     }
+
     .top .searchcart form button {
         top: 2px;
         right: 20px
     }
+
     .top .top-search,
     .top .top-search:focus {
         width: 90%;
@@ -2658,81 +2668,104 @@ a img.aligncenter {
         border-radius: 0;
         -webkit-appearance: none
     }
+
     .top form {
         margin-bottom: 0;
         margin-top: 20px;
         text-align: center
     }
+
     .promo article {
         margin: 15px auto !important
     }
+
     section.feat .view,
     section.product .view,
     section.single .view {
         margin: 10px auto
     }
+
     .product .sidebar .info {
         width: 100%
     }
+
     .product .tab-content.sideline article {
         width: 97% !important
     }
+
     section.product article {
         margin: 0 0 10px !important
     }
+
     .product .tab-content.sideline {
         border: none !important
     }
+
     section.single .flex-control-nav {
         display: block !important
     }
+
     section.single .related .itembox,
     section.single .upsells .itembox {
         width: 100%
     }
+
     .coupon,
     .goco {
         text-align: center
     }
+
     .coupon .btn {
         margin-top: 5px
     }
+
     .goco {
         margin-top: 15px
     }
+
     .home-panel {
         padding: 10px
     }
+
     .comments {
         padding-left: 0;
         padding-right: 0
     }
+
     #flexslider-product {
         margin-bottom: 30px;
         text-align: center
     }
+
     .cart-pay,
     .cart-pay .cart-checkout {
         text-align: center !important
     }
+
     footer {
         padding: 20px
     }
+
     footer .foot article {
         margin-bottom: 15px
     }
+
     footer .foot div[class*=span] {
         margin-bottom: 20px
     }
+
     .feat .span12 {
         width: 100%
     }
+
     .feat .row {
         margin-left: 0
     }
+
     .feat .row .span4 {
         width: 97%
     }
+
     .carousel-option {
         display: none
     }
@@ -2742,10 +2775,12 @@ a img.aligncenter {
     #nav {
         display: none !important
     }
+
     .container-menu {
         background: 0 0;
         border: none
     }
+
     .js .selectnav {
         display: block;
         font-size: .9em
@@ -2756,41 +2791,52 @@ a img.aligncenter {
     .top .logo a {
         padding-left: 0
     }
+
     .top .top-search,
     .top .top-search:focus {
         width: 85%
     }
+
     .call-to-action,
     .call-to-action .cta {
         text-align: center;
         float: none !important
     }
+
     section.single .decider {
         text-align: center
     }
+
     section.single {
         padding: 30px 0
     }
+
     section.single .cross-wrapper .span3 {
         padding: 10px 0
     }
+
     section.single .decider,
     section.single .decidernote {
         text-align: center
     }
+
     footer .currency {
         text-align: left
     }
+
     .login .form-horizontal .controls {
         margin-left: 0
     }
+
     #nav {
         display: none !important
     }
+
     .js .selectnav {
         display: block;
         font-size: .9em
     }
+
     .flex-caption {
         display: none
     }

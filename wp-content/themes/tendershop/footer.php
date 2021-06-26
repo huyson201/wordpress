@@ -3,14 +3,14 @@
         <section class="row foot">
             <article class="col-sm-3">
                 <strong>Quick Links</strong>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Returns Policies</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
+                <?php wp_nav_menu(
+                    array(
+                        'theme_location' => 'quick-link',
+                        'container' => 'false',
+                        'menu_id' => 'quick-link',
+                        'menu_class' => 'quick-link'
+                    )
+                ); ?>
             </article>
             <article class="col-sm-3">
                 <strong>Latest Post</strong>
@@ -66,12 +66,12 @@
             <div class="pull-left">&copy; 2012 TenderShop</div>
             <div class="pull-right">
                 <ul>
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-gplus"></i></a></li>
-                    <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                    <li><a href="#"><i class="icon-tumblr"></i></a></li>
-                    <li><a href="#"><i class="icon-instagrem"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
