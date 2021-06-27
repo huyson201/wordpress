@@ -1,0 +1,8 @@
+2021-06-27T09:26:19+00:00 CRITICAL Uncaught Error: Call to a member function is_on_sale() on null in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\woocommerce\archive-product.php:60
+Stack trace:
+#0 E:\xampp\htdocs\wordpress\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\wordpress\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\wordpress\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\woocommerce\archive-product.php on line 60
+

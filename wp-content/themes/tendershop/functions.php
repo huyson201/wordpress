@@ -12,7 +12,10 @@ function ts_add_woocommerce_support()
 }
 
 add_action('after_setup_theme', 'ts_add_woocommerce_support');
-
+/**
+ * disable woocommerce styles
+ */
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 /**
  * tender shop styles
  */
@@ -22,7 +25,8 @@ function ts_styles()
     /**
      * Add bootstrap file
      */
-    wp_enqueue_style('bootstrap-style', get_template_directory_uri() . '/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-style1', get_template_directory_uri() . '/css/bootstrap.min.css');
+    // wp_enqueue_style('bootstrap-style', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css');
 
     /**
      * Add font file
@@ -156,9 +160,6 @@ function ts_slider_post_type()
 
 
     register_post_type('slider', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
-    register_post_type('brand', $args2); 
+    register_post_type('brand', $args2);
 }
 add_action('init', 'ts_slider_post_type');
-
-
-

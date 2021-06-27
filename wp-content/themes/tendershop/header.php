@@ -11,13 +11,12 @@
     <meta property="og:description" content="Minimalist  Responsive eCommerce Template" />
     <meta property="og:url" content="http://ninetheme.com/" />
     <meta property="og:image" content="http://ninetheme.com/logo.png" />
- 
+
     <link rel="icon" href="img/hsfavicon.png">
     <?php wp_head(); ?>
 
 
     <script type="text/javascript">
-      
         WebFontConfig = {
             google: {
                 families: ['Bangers', 'Lato']
@@ -53,15 +52,13 @@
 		<![endif]-->
 </head>
 
-<body class="wf-active">
-
-
+<body <?php body_class(); ?>>
 
     <div class="header-container">
         <div class="container welcome">
             <div class="row">
                 <div class="pull-left greet">
-                    Welcome shopper, <a href="login.html">login here</a>
+                    Welcome shopper, <a href="#">login here</a>
                 </div>
                 <div class="pull-right cart tright">
 
@@ -102,8 +99,8 @@
             <div class="row">
                 <div class="col-sm-12 clearfix">
                     <div class="top row">
-                        <div class="col-sm-8 logo text" style="display:none"><a href="index.html">TenderShop</a></div>
-                        <div class="col-sm-8 logo image"><a href="index.html"><img src="<?php bloginfo('template_url'); ?>/img/highreslogo.png" alt="" /></a></div>
+                        <div class="col-sm-8 logo text" style="display:none"><a href="<?php echo home_url(); ?>">TenderShop</a></div>
+                        <div class="col-sm-8 logo image"><a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/img/highreslogo.png" alt="" /></a></div>
                         <div class="cart col-sm-4">
                             <form action="#" class="topsearch">
                                 <input type="search" class="top-search" placeholder="Search" />
