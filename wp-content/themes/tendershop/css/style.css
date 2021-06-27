@@ -6,6 +6,21 @@ a {
     color: #000
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h3,
+.h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.pull-right {
+    margin-left: auto;
+}
+
 button.theme,
 .share a,
 .share a:hover,
@@ -757,8 +772,8 @@ h2.price .price-old {
     box-shadow: 0 0 1px #000
 }
 
-.view a.info: hover,
-.view button.info: hover {
+.view a.info:hover,
+.view button.info:hover {
     -webkit-box-shadow: 0 0 5px #000;
     -moz-box-shadow: 0 0 5px #000;
     box-shadow: 0 0 5px #000
@@ -1019,7 +1034,7 @@ section.product .sidebar article {
 }
 
 section.product .sidebar section {
-    margin-bottom: 50px
+    margin-bottom: 32px
 }
 
 section.product .sidebar section article {
@@ -1349,7 +1364,7 @@ section.blog .bloglist {
 }
 
 .blog article {
-    padding: 30px 0
+    /* padding: 30px 0 */
 }
 
 .blog article:first-child {
@@ -1403,9 +1418,9 @@ section.blog .bloglist {
     padding-left: 10px
 }
 
-.archive article {
-    padding: 30px 0
-}
+/* .archive article {
+    padding: 0 20px !important;
+} */
 
 .archive article:first-child {}
 
@@ -1690,7 +1705,8 @@ footer .social .pull-right {
 }
 
 footer .social .pull-right ul {
-    float: right
+    float: right;
+
 }
 
 footer input,
@@ -2614,6 +2630,36 @@ a img.aligncenter {
 
 .gallery img {
     border: none !important
+}
+
+
+/* pagination */
+.pagination a,
+.pagination span,
+.pagination a:first-child {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #DEE2E6;
+}
+
+.pagination a:not(.next.page-numbers)~.page-numbers.current {
+    border-left: none;
+}
+
+.pagination .next.page-numbers {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.pagination .prev.page-numbers {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination .current {
+    background-color: #e55137;
+    border: none;
+    color: #fff;
 }
 
 @media(min-width:768px) and (max-width:979px) {
