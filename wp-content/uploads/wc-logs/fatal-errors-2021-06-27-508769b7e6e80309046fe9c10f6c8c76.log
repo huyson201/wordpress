@@ -1,0 +1,24 @@
+2021-06-27T08:57:14+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\packages\woocommerce-blocks\src\StoreApi\Schemas\ImageAttachmentSchema.php on line 9
+
+2021-06-27T09:31:54+00:00 CRITICAL Uncaught Error: Call to a member function is_on_sale() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\sale-flash.php:25
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1609): wc_get_template('single-product/...')
+#2 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_show_product_sale_flash('')
+#3 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#4 C:\wamp64\www\wordpress\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#5 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\content-single-product.php(43): do_action('woocommerce_bef...')
+#6 C:\wamp64\www\wordpress\wp-includes\template.php(732): require('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): lo in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\sale-flash.php on line 25
+
+2021-06-27T09:32:12+00:00 CRITICAL Uncaught Error: Call to a member function is_on_sale() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\sale-flash.php:25
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1609): wc_get_template('single-product/...')
+#2 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_show_product_sale_flash('')
+#3 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#4 C:\wamp64\www\wordpress\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#5 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\content-single-product.php(43): do_action('woocommerce_bef...')
+#6 C:\wamp64\www\wordpress\wp-includes\template.php(732): require('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): lo in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\sale-flash.php on line 25
+

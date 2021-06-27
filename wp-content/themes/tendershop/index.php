@@ -6,7 +6,7 @@
 
 
 <div class="homepagecontainer">
-    <?php get_template_part('slider') ?>
+    <?php get_template_part('slider');?>
     <div class="clearfix"></div>
 
     <section class="home-panel promo">
