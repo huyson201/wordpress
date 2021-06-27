@@ -757,8 +757,8 @@ h2.price .price-old {
     box-shadow: 0 0 1px #000
 }
 
-.view a.info: hover,
-.view button.info: hover {
+.view a.info:hover,
+.view button.info:hover {
     -webkit-box-shadow: 0 0 5px #000;
     -moz-box-shadow: 0 0 5px #000;
     box-shadow: 0 0 5px #000
@@ -1788,9 +1788,6 @@ footer article {
     border: 0;
     background: none repeat scroll 0 0 #ff6b6b;
     box-shadow: 1px 1px 1px .5px rgba(0, 0, 0, .25) inset;
-    -webkit-box-shadow: 1px 1px 1px .5px rgba(0, 0, 0, .25) inset;
-    -moz-box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.25) inset -webkit-border-radius:1em;
-    -moz-border-radius: 1em;
     border-radius: 1em
 }
 
