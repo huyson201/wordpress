@@ -34,7 +34,6 @@
     </script>
     <style type="text/css">
         /* Add Google Font name here */
-
         .wf-active {
             font-family: 'Lato', serif;
             font-size: 14px;
