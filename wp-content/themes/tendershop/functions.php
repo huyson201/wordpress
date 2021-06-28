@@ -37,7 +37,7 @@ function ts_styles()
      * add Font awesome link
      */
 
-    wp_enqueue_style("font-awesome",  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+    wp_enqueue_style("font-awesome",  "https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
     /**
      * Add style file
      */
@@ -66,7 +66,7 @@ function ts_scripts()
      * scripts
      */
     wp_enqueue_script('jquery-tweet', get_template_directory_uri() . '/js/jquery.tweet.js', array(), false, true);
-    wp_enqueue_script('js-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true);
+    wp_enqueue_script('js-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), true, true);
     wp_enqueue_script('js-shop', get_template_directory_uri() . '/js/shop.js', array(), false, true);
     wp_enqueue_script('js-script', get_template_directory_uri() . '/js/script.js', array(), false, true);
 }

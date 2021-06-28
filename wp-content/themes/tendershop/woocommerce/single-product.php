@@ -1,21 +1,56 @@
+<?php
+
+/**
+ * The Template for displaying all single products
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see         https://docs.woocommerce.com/document/template-structure/
+ * @package     WooCommerce\Templates
+ * @version     1.6.4
+ */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+get_header();
+?>
+
 <div class="container">
 
     <section class="single">
         <div class="row">
             <header class="col-sm-12 prime">
-                <h3>Color Scatter Tee</h3>
+                <h3>
+                    <?php
+                    /**
+                     * woocommerce_before_main_content hook.
+                     *
+                     * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+                     * @hooked woocommerce_breadcrumb - 20
+                     */
+                    do_action('woocommerce_before_main_content');
+                    ?>
+                </h3>
             </header>
         </div>
         <div class="row">
             <div class="col-sm-5">
 
                 <div class="wrap">
-                    <div id="flexslider-product" class="flexslider">
+                    <div id="flexslider-product" class="">
                         <ul class="slides">
-                            <li><a href="img/products/1.gif"><img src="img/products/1.gif" /></a></li>
-                            <li><a href="img/products/3.gif"><img src="img/products/3.gif" /></a></li>
+                            <li><a href="#"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()))[0]; ?>" alt="<?php the_title(); ?>" /></a></li>
+                            <!-- <li><a href="img/products/3.gif"><img src="img/products/3.gif" /></a></li>
                             <li><a href="img/products/4.gif"><img src="img/products/4.gif" /></a></li>
-                            <li><a href="img/products/5.gif"><img src="img/products/5.gif" /></a></li>
+                            <li><a href="img/products/5.gif"><img src="img/products/5.gif" /></a></li> -->
                         </ul>
                     </div>
                     <div id="flexcarousel-product" class="flexslider visible-desktop">
@@ -31,8 +66,8 @@
             <div class="col-sm-7">
 
                 <div class="details wrapper">
-                    <p><small>&#8220;LIGHTWEIGHT PACKAWAY TRAVEL JACKET&#8221;</small></p>
-                    <p class="price"><i class="icon-tag"></i> $ 270.41</p>
+                    <p style="text-transform: uppercase;"><small>&#8220; <?php the_title() ?> &#8221;</small></p>
+                    <p class="price"><i class="fas fa-tags"></i> $ <?php echo wc_get_product(get_the_ID())->get_price(); ?></p>
                     <form action="#">
                         <p>
                             <select name="#" id="#">
@@ -54,8 +89,8 @@
                             <div class="pull-left qty">
                                 <input type="text" class="qty" value="1">
                                 <div class="total">
-                                    <a href="#"><i class="icon-plus-squared"></i></a>
-                                    <a href="#"><i class="icon-minus-squared"></i></a>
+                                    <a href="#"><i class="fas fa-plus-square"></i></a>
+                                    <a href="#"><i class="fas fa-minus-square"></i></a>
                                 </div>
                             </div>
                             <div class="pull-left"><a href="checkout.html" class="btn theme">Add to Cart</a></div>
@@ -65,11 +100,11 @@
                     <div class="row">
                         <div class="col-sm-6 decidernote">Hard to decide? Ask you friends :)</div>
                         <div class="col-sm-6 decider">
-                            <a href="#"><i class="icon-facebook-circled"></i></a>
-                            <a href="#"><i class="icon-twitter-circled"></i></a>
-                            <a href="#"><i class="icon-gplus-circled"></i></a>
-                            <a href="#"><i class="icon-pinterest-circled"></i></a>
-                            <a href="#"><i class="icon-mail"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-google-plus"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <hr>
@@ -77,16 +112,16 @@
                     <div class="accordion" id="accordion2">
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#description">
+                                <button class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#description" >
                                     <i class="icon-layout theme"></i> Product Description
-                                </a>
+                                </button>
                             </div>
                             <div id="description" class="accordion-body collapse">
-                                <div class="accordion-inner">
-                                    When unexpected showers strike, reach for this Faconnable cover-up to protect yourself from the elements. The jacket comes with a built-in pouch, so be sure to pack it away and throw this lightweight piece into your bag before you head out for the day.
-                                    The easy navy hue and practical pockets make it an investment in effortless style. Shown here with a Faconnable shirt, Dunhill trousers, John Lobb shoes and a Jean Shop belt.
+                                <div class="-iaccordionnner">
+                                    <?php the_content(); ?>
                                 </div>
                             </div>
+                          
                         </div>
                         <div class="accordion-group">
                             <div class="accordion-heading">
@@ -128,6 +163,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
 
@@ -137,7 +173,17 @@
                 <div class="cross-wrapper">
                     <hr />
                     <header>Wear it with</header>
-                    <section class="row cross-product">
+                    <?php
+                    /**
+                     * Hook: woocommerce_after_single_product_summary.
+                     *
+                     * @hooked woocommerce_output_product_data_tabs - 10
+                     * @hooked woocommerce_upsell_display - 15
+                     * @hooked woocommerce_output_related_products - 20
+                     */
+                    do_action('ts_add_woocommerce_support');
+                    ?>
+                    <!-- <section class="row cross-product">
                         <article class=" col-sm-3 product-box">
                             <div class="product-inner">
                                 <span class="onsale">SALE</span>
@@ -200,9 +246,12 @@
                                 <p><a href="product.html">Sample Product Tendershop</a></p>
                             </div>
                         </article>
+               
+                    </section>
+                    -->
                 </div>
             </div>
         </div>
-</div>
-</section>
+
+    </section>
 </div>

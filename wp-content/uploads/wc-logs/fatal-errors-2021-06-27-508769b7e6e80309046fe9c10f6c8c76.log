@@ -32,3 +32,94 @@ Stack trace:
   thrown in E:\xampp\htdocs\wordpress\wp-content\themes\tendershop\woocommerce\archive-product.php on line 60
 >>>>>>> main
 
+2021-06-27T18:46:17+00:00 CRITICAL Uncaught Error: Call to a member function get_image_id() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:52
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 52
+
+2021-06-27T18:46:30+00:00 CRITICAL Uncaught Error: Call to a member function get_image() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:53
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 53
+
+2021-06-27T18:47:37+00:00 CRITICAL Uncaught Error: Call to a member function get_image() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:25
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 25
+
+2021-06-27T18:52:35+00:00 CRITICAL Uncaught Error: Call to a member function get_image() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:25
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 25
+
+2021-06-27T18:56:20+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:1888
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(25): WC_Product::get_image()
+#1 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 1888
+
+2021-06-27T19:15:05+00:00 CRITICAL Uncaught Error: Call to a member function have_posts() on null in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:45
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 45
+
+2021-06-27T19:47:16+00:00 CRITICAL Uncaught Error: Call to a member function get_name() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:70
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 70
+
+2021-06-27T19:48:47+00:00 CRITICAL Uncaught Error: Call to a member function get_title() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:70
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 70
+
+2021-06-27T19:54:18+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_price() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:71
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 71
+
+2021-06-27T19:55:54+00:00 CRITICAL Uncaught Error: Call to a member function get_price() on string in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:71
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 71
+
+2021-06-27T19:57:19+00:00 CRITICAL Uncaught Error: Call to a member function get_price() on bool in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:71
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 71
+
+2021-06-27T21:17:14+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress\wp-content\plugins\mailpoet\lib\Doctrine\Driver\PDOStatement.php on line 88
+
