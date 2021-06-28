@@ -62,32 +62,39 @@
                 <div class="pull-right cart tright">
 
                     <div class="counter">
-                        <a href="javascript:void(0);"><i class="fa fa-shopping-cart" aria-hidden="true"></i></i></i> Your cart </a> : <span class="theme">$139</span>
+                        <a href="javascript:void(0);"><i class="fa fa-shopping-cart" aria-hidden="true"></i></i></i> Your cart </a> : <span class="theme"><?php echo WC()->cart->get_total(); ?></span>
                     </div>
 
                     <div class="cartbubble">
                         <div class="arrow-box">
+                            <?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+                                $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                                $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
+                                if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
+                                    $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+                            ?>
+                                    <div class="clearfix">
+                                        <a href="#"><?php
+                                                    if (!$product_permalink) {
+                                                        echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;');
+                                                    } else {
+                                                        echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
+                                                    } ?>
+                                        </a> <span class="theme pull-right"><?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); 
+														?></span>
+                                    </div>
 
-                            <div class="clearfix">
-                                <a href="#">Sample Tshirt Stripes...</a> <span class="theme pull-right">$55</span>
-                            </div>
-
-                            <div class="clearfix">
-                                <a href="#">Sample Dress in cart</a> <span class="theme pull-right">$73</span>
-                            </div>
-
-                            <div class="clearfix">
-                                <a href="#">Sample Socks in cart</a> <span class="theme pull-right">$11</span>
-                            </div>
+                            <?php }
+                            } ?>
                             <hr />
 
                             <div class="clearfix">
-                                TOTAL <span class="theme pull-right">$139</span>
+                                TOTAL <span class="theme pull-right"><?php echo WC()->cart->get_total(); ?></span>
                             </div>
                             <hr />
                             <div class="clearfix">
                                 <a href="javascript:void(0)" id="closeit">Close</a>
-                                <a href="checkout.html" class="btn theme btn-mini pull-right">Checkout</a>
+                                <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="btn theme btn-mini pull-right">Checkout</a>
                             </div>
                         </div>
                     </div>

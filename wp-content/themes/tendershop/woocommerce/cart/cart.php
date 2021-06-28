@@ -19,8 +19,9 @@
 defined('ABSPATH') || exit;
 
 ?>
+<?php do_action('woocommerce_before_cart'); ?>
 <div class="container">
-	<?php do_action('woocommerce_before_cart'); ?>
+	
 	<section class="order">
 		<div class="row standard">
 			<header class="col-sm-12 prime">
@@ -154,3 +155,4 @@ defined('ABSPATH') || exit;
 		</div>
 	</section>
 </div>
+<?php do_action( 'woocommerce_after_cart' ); ?>

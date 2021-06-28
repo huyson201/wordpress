@@ -1656,6 +1656,7 @@ ul.payment_methods {
 }
 
 .cart table tbody td {
+    padding: 0;
     vertical-align: middle;
     border-top: 1px solid #ddd
 }
@@ -2900,5 +2901,10 @@ a img.aligncenter {
     border-top: 3px solid #8fae1b;
     list-style: none outside;
     width: auto;
-    word-wrap: break-word;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+.woocommerce .return-to-shop{
+    text-align: center;
 }
