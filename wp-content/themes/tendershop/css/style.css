@@ -1640,15 +1640,15 @@ ul.payment_methods {
 }
 
 .cart table .cart-img {
-    width: 15%;
+    width: 13%;
     padding: 5px 0;
     margin-right: 3%
 }
 
 .cart table .item {
-    width: 80%;
     font-size: 1.3em;
-    padding-top: 40px
+    line-height: 88px;
+
 }
 
 .cart table .item a {
@@ -1656,7 +1656,8 @@ ul.payment_methods {
 }
 
 .cart table tbody td {
-    padding-top: 40px
+    vertical-align: middle;
+    border-top: 1px solid #ddd
 }
 
 .cart table tbody td:first-child {
@@ -2883,4 +2884,21 @@ a img.aligncenter {
     .flex-caption {
         display: none
     }
+}
+.quantity .my-qty-input {
+    max-width: 30px ;
+}
+.woocommerce-message {
+    border-top-color: #8fae1b;
+}
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+    padding: 1em 2em 1em 3.5em;
+    margin: 0 0 2em;
+    position: relative;
+    background-color: #f7f6f7;
+    color: #515151;
+    border-top: 3px solid #8fae1b;
+    list-style: none outside;
+    width: auto;
+    word-wrap: break-word;
 }

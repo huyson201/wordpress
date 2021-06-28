@@ -163,3 +163,6 @@ function ts_slider_post_type()
     register_post_type('brand', $args2);
 }
 add_action('init', 'ts_slider_post_type');
+
+
+ 

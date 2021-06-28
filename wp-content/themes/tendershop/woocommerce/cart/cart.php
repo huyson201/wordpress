@@ -18,8 +18,9 @@
 
 defined('ABSPATH') || exit;
 
-do_action('woocommerce_before_cart'); ?>
+?>
 <div class="container">
+	<?php do_action('woocommerce_before_cart'); ?>
 	<section class="order">
 		<div class="row standard">
 			<header class="col-sm-12 prime">
@@ -54,7 +55,7 @@ do_action('woocommerce_before_cart'); ?>
 												<div class="cart-img pull-left hidden-phone">
 													<?php
 													// get image 
-													$thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+													$thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(array(100,78.89)), $cart_item, $cart_item_key);
 													if (!$product_permalink) {
 														echo $thumbnail;
 													} else {
@@ -110,6 +111,7 @@ do_action('woocommerce_before_cart'); ?>
 															'max_value'    => $_product->get_max_purchase_quantity(),
 															'min_value'    => '0',
 															'product_name' => $_product->get_name(),
+															'classes' => array( 'my-qty-input')
 														),
 														$_product,
 														false

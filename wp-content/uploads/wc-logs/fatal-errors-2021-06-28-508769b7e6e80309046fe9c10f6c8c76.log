@@ -1,0 +1,2 @@
+2021-06-28T17:40:44+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 3727
+
