@@ -22,38 +22,56 @@ if (!defined('ABSPATH')) {
 
 if ($related_products) : ?>
 
-	<section class="related products">
+	<section class="row cross-product">
 
-		<?php
-		// $heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
-		// var_dump($heading);
-		// if ( $heading ) :
-		?>
-		<!-- <h2><?php //echo esc_html( $heading ); 
-					?></h2> -->
-		<?php //endif; 
-		?>
-
-		<?php
-		//  woocommerce_product_loop_start(); 
-		// var_dump(woocommerce_product_loop_start());
-		?>
 
 		<?php foreach ($related_products as $related_product) :
 			// var_dump($related_product);
 		?>
 			<?php
 			$post_object = get_post($related_product->get_id());
-			var_dump($post_object);
+			// var_dump($post_object);
+			?>
+			<article class=" col-sm-3 product-box">
+				<div class="product-inner">
+					<?php if ($related_product->is_on_sale()) : ?>
+						<span class="onsale">SALE</span>
+					<?php endif; ?>
+					<div class="view view-thumb">
+						<div class="image"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post_object->ID))[0]; ?>" alt="" /></div>
+						<div class="mask">
+							<p><?php echo $post_object->post_content ?></p>
+							<a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+						</div>
+					</div>
+					<h2 class="price">
+						<?php if ($related_product->is_on_sale()) : ?>
+							<span class="price-old"> $<?php echo $related_product->get_regular_price(); ?>
+							</span><span class="price-new">$<?php echo $related_product->get_sale_price(); ?></span>
+						<?php else : ?>
+							<span class="price-new"><?php echo $related_product->get_price_html(); ?></span>
+						<?php endif; ?>
+					</h2>
+					<p><a href="<?php the_permalink(); ?>"><?php echo $post_object->post_title ?></a></p>
+				</div>
+			</article>
+			<?php
+			//  woocommerce_product_loop_start(); 
+			// var_dump(woocommerce_product_loop_start());
+			?>
 
-			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-			wc_get_template_part('content', 'product');
+			<?php
+
+			// setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+
+			// wc_get_template_part('content', 'product');
 			?>
 
 		<?php endforeach; ?>
 
-		<?php woocommerce_product_loop_end(); ?>
+		<?php //woocommerce_product_loop_end(); 
+		?>
 
 	</section>
 <?php

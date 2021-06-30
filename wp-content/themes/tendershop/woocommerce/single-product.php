@@ -47,19 +47,19 @@ $product = wc_get_product(get_the_ID());
 
                 <div class="wrap">
                     <ul id="owl-carousel-slider" class="owl-carousel">
-
                         <?php
                         $attachment_ids = $product->get_gallery_image_ids();
-                        // if (count($attachment_ids) == 0) {
                         ?>
+
                         <li><a href="#"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()))[0]; ?>" alt="<?php the_title(); ?>" /></a></li>
+
                         <?php
-                        // } else {
                         foreach ($attachment_ids as $attachment_id) {
                         ?>
+
                             <li><a href="<?php echo wp_get_attachment_url($attachment_id) ?>"><img src="<?php echo wp_get_attachment_url($attachment_id) ?>" /></a></li>
+
                         <?php
-                            // }
                         }
                         ?>
                     </ul>
@@ -125,7 +125,7 @@ $product = wc_get_product(get_the_ID());
                                     <a href="#"><i class="fas fa-minus-square"></i></a>
                                 </div>
                             </div>
-                            <div class="pull-left"><a href="checkout.html" class="btn theme">Add to Cart</a></div>
+                            <div class="pull-left"><a href="<?php bloginfo('url'); ?>?add-to-cart=<?php the_ID(); ?>" class="btn theme">Add to Cart</a></div>
                         </div>
                     </form>
                     <hr>
@@ -211,13 +211,14 @@ $product = wc_get_product(get_the_ID());
                         'orderby'        => 'rand',
                         'order'          => 'desc',
                     );
-
+                    //array_map : mảng callback. thực hiện lấy product related
                     $args['related_products'] = array_filter(
-                        array_map('wc_get_product', wc_get_related_products($product->get_id(), $args['posts_per_page'],
-                         $product->get_upsell_ids()))
-                         , 'wc_products_array_filter_visible');
+                        array_map('wc_get_product', wc_get_related_products($product->get_id(), $args['posts_per_page'])),
+                        'wc_products_array_filter_visible'
+                    );
 
-                    // // var_dump($args['related_products'][0]);
+                    // var_dump(wc_get_related_products($product->get_id(), $args['posts_per_page']));
+                    // die();
                     // Truyền biến related_products sang related.php
                     $args['related_products'] = wc_products_array_orderby($args['related_products'], $args['orderby'], $args['order']);
 
@@ -225,7 +226,7 @@ $product = wc_get_product(get_the_ID());
                     // wc_set_loop_prop('name', 'related');
                     // wc_set_loop_prop('columns', $args['columns']);
 
-                     wc_get_template('single-product/related.php', $args);
+                    wc_get_template('single-product/related.php', $args);
                     ?>
 
 
