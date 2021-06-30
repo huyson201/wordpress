@@ -40,10 +40,11 @@ if ($related_products) : ?>
 		?>
 
 		<?php foreach ($related_products as $related_product) :
-			var_dump($related_product);
+			// var_dump($related_product);
 		?>
 			<?php
 			$post_object = get_post($related_product->get_id());
+			var_dump($post_object);
 
 			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
