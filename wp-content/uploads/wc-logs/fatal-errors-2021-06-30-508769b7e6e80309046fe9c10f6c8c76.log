@@ -1,0 +1,52 @@
+2021-06-30T08:51:29+00:00 CRITICAL syntax error, unexpected ')', expecting variable (T_VARIABLE) or '{' or '$' in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 229
+
+2021-06-30T08:53:41+00:00 CRITICAL syntax error, unexpected ')', expecting variable (T_VARIABLE) or '{' or '$' in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 228
+
+2021-06-30T08:54:06+00:00 CRITICAL syntax error, unexpected ')', expecting variable (T_VARIABLE) or '{' or '$' in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 228
+
+2021-06-30T13:29:07+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Simple as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:219
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 219
+
+2021-06-30T13:30:58+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Simple as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:219
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 219
+
+2021-06-30T13:44:45+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:54
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(228): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 54
+
+2021-06-30T13:45:52+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:54
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(228): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 54
+
+2021-06-30T13:46:13+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:54
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(228): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 54
+
