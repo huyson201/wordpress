@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2021-06-28T05:13:53+00:00 CRITICAL Uncaught Error: Call to a member function has_attributes() on string in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1794
 Stack trace:
 #0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_default_product_tabs(Array)
@@ -29,4 +30,7 @@ Stack trace:
 #2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
 #3 {main}
   thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 106
+=======
+2021-06-28T17:40:44+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 3727
+>>>>>>> e6e5425bdb3121f88948107bce33c1e640c654bf
 

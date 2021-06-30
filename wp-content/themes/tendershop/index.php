@@ -1,10 +1,5 @@
 <?php get_header(); ?>
 
-
-
-
-
-
 <div class="homepagecontainer">
     <?php get_template_part('slider');?>
     <div class="clearfix"></div>
@@ -48,12 +43,14 @@
                                         <div class="mask">
                                             <a href="<?php the_permalink(); ?>"></a>
                                             <p><?php the_content(); ?></p>
-                                            <a href="<?php the_permalink(); ?>" class="info">View</a> <a href="<?php bloginfo('url'); ?>?add-to-cart=<?php the_ID(); ?>" class="info">Buy</a>
+                                            <a href="<?php the_permalink(); ?>" class="info">View</a>
+                                            <a href="<?php bloginfo('url'); ?>?add-to-cart=<?php the_ID(); ?>" class="info">Buy</a>
                                         </div>
                                     </div>
                                     <h2 class="price">
                                         <?php if ($product->is_on_sale()) : ?>
-                                            <span class="price-old"> $<?php echo $product->get_regular_price(); ?></span><span class="price-new">$<?php echo $product->get_sale_price(); ?></span>
+                                            <span class="price-old"> $<?php echo $product->get_regular_price(); ?>
+                                            </span><span class="price-new">$<?php echo $product->get_sale_price(); ?></span>
                                         <?php else : ?>
                                             <span class="price-new"><?php echo $product->get_price_html(); ?></span>
                                         <?php endif; ?>
