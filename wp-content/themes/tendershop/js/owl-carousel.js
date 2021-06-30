@@ -1,9 +1,9 @@
 $(document).ready(function () {
-  $("#flexslider-product").owlCarousel({
+  $("#owl-carousel-slider").owlCarousel({
     items: 1,
     nav: true,
   });
-  $("#flexslider-product-gallery").owlCarousel({
+  $("#owl-carousel-slider-gallery").owlCarousel({
     items: 3,
     nav: true,
   });

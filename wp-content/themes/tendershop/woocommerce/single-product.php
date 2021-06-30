@@ -46,24 +46,24 @@ $product = wc_get_product(get_the_ID());
             <div class="col-sm-5">
 
                 <div class="wrap">
-                    <ul id="flexslider-product" class="owl-carousel">
+                    <ul id="owl-carousel-slider" class="owl-carousel">
 
                         <?php
                         $attachment_ids = $product->get_gallery_image_ids();
-                        if (count($attachment_ids) == 0) {
+                        // if (count($attachment_ids) == 0) {
                         ?>
-                            <li><a href="#"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()))[0]; ?>" alt="<?php the_title(); ?>" /></a></li>
-                            <?php
-                        } else {
-                            foreach ($attachment_ids as $attachment_id) {
-                            ?>
-                                <li><a href="<?php echo wp_get_attachment_url($attachment_id) ?>"><img src="<?php echo wp_get_attachment_url($attachment_id) ?>" /></a></li>
+                        <li><a href="#"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()))[0]; ?>" alt="<?php the_title(); ?>" /></a></li>
                         <?php
-                            }
+                        // } else {
+                        foreach ($attachment_ids as $attachment_id) {
+                        ?>
+                            <li><a href="<?php echo wp_get_attachment_url($attachment_id) ?>"><img src="<?php echo wp_get_attachment_url($attachment_id) ?>" /></a></li>
+                        <?php
+                            // }
                         }
                         ?>
                     </ul>
-                    <ul id="flexslider-product-gallery" class="owl-carousel">
+                    <ul id="owl-carousel-slider-gallery" class="owl-carousel">
                         <?php
                         foreach ($attachment_ids as $attachment_id) {
                         ?>
@@ -176,6 +176,7 @@ $product = wc_get_product(get_the_ID());
                                             $children = $product->get_children();
                                             foreach ($children as $value) {
                                                 $variation = $product->get_available_variation($value);
+
                                             ?>
                                                 <tr>
                                                     <td style="text-transform: uppercase;"><?php echo $variation['attributes']['attribute_pa_size'] ?></td>
@@ -204,27 +205,27 @@ $product = wc_get_product(get_the_ID());
                     <hr />
                     <header>Wear it with</header>
                     <?php
-                    // $args = array(
-                    //     'posts_per_page' => 4,
-                    //     'columns'        => 4,
-                    //     'orderby'        => 'rand',
-                    //     'order'          => 'desc',
-                    // );
+                    $args = array(
+                        'posts_per_page' => 4,
+                        'columns'        => 4,
+                        'orderby'        => 'rand',
+                        'order'          => 'desc',
+                    );
 
-                    // $args['related_products'] = array_filter(
-                    //     array_map('wc_get_product', wc_get_related_products($product->get_id(), $args['posts_per_page'],
-                    //      $product->get_upsell_ids()))
-                    //      , 'wc_products_array_filter_visible');
+                    $args['related_products'] = array_filter(
+                        array_map('wc_get_product', wc_get_related_products($product->get_id(), $args['posts_per_page'],
+                         $product->get_upsell_ids()))
+                         , 'wc_products_array_filter_visible');
 
                     // // var_dump($args['related_products'][0]);
-
-                    // $args['related_products'] = wc_products_array_orderby($args['related_products'], $args['orderby'], $args['order']);
+                    // Truyền biến related_products sang related.php
+                    $args['related_products'] = wc_products_array_orderby($args['related_products'], $args['orderby'], $args['order']);
 
                     // // Set global loop values.
                     // wc_set_loop_prop('name', 'related');
                     // wc_set_loop_prop('columns', $args['columns']);
 
-                    // wc_get_template('single-product/related.php', $args);
+                     wc_get_template('single-product/related.php', $args);
                     ?>
 
 

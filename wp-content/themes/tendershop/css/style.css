@@ -2888,8 +2888,7 @@ a img.aligncenter {
     }
 }
 
-.owl-carousel li,
-.owl-carousel-gallery li{
+.owl-carousel li{
     list-style: none;
     padding: 5px;
 }
@@ -2898,11 +2897,11 @@ a img.aligncenter {
 .owl-carousel .owl-nav button.owl-next{
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-80%) !important;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #747474;
+    background: #747474 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2928,6 +2927,7 @@ a img.aligncenter {
 .owl-carousel:hover .owl-nav button.owl-next{
     opacity: 0.8;
     right:5px;
+   
 }
 
 .owl-carousel:hover .owl-nav button.owl-prev{
