@@ -2193,7 +2193,7 @@ html[xmlns] .slides {
 }
 
 .no-js .slides>li:first-child {
-    display: block
+    display: inline-block
 }
 
 .home-span12 {
@@ -2886,4 +2886,51 @@ a img.aligncenter {
     .flex-caption {
         display: none
     }
+}
+
+.owl-carousel li,
+.owl-carousel-gallery li{
+    list-style: none;
+    padding: 5px;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #747474;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.2s;
+}
+.owl-carousel .owl-nav button.owl-prev{
+    left:-30px;
+}
+.owl-carousel .owl-nav button.owl-next{
+    right:-30px;
+}
+
+.owl-carousel .owl-nav button span{
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+#flexslider-product-gallery .owl-dots{
+    display: none;
+}
+
+.owl-carousel:hover .owl-nav button.owl-next{
+    opacity: 0.8;
+    right:5px;
+}
+
+.owl-carousel:hover .owl-nav button.owl-prev{
+    opacity: 0.8;
+    left:5px;
 }

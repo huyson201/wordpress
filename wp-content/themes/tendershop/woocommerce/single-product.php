@@ -21,6 +21,7 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
+$product = wc_get_product(get_the_ID());
 ?>
 
 <div class="container">
@@ -45,46 +46,70 @@ get_header();
             <div class="col-sm-5">
 
                 <div class="wrap">
-                    <div id="flexslider-product" class="">
-                        <ul class="slides">
-                            <li><a href="#"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()))[0]; ?>" alt="<?php the_title(); ?>" /></a></li>
-                            <!-- <li><a href="img/products/3.gif"><img src="img/products/3.gif" /></a></li>
-                            <li><a href="img/products/4.gif"><img src="img/products/4.gif" /></a></li>
-                            <li><a href="img/products/5.gif"><img src="img/products/5.gif" /></a></li> -->
-                        </ul>
-                    </div>
-                    <div id="flexcarousel-product" class="flexslider visible-desktop">
-                        <ul class="slides">
-                            <li><img src="img/products/1.gif" alt="" /></li>
-                            <li><img src="img/products/3.gif" alt="" /></li>
-                            <li><img src="img/products/4.gif" alt="" /></li>
-                            <li><img src="img/products/5.gif" alt="" /></li>
-                        </ul>
-                    </div>
+                    <ul id="flexslider-product" class="owl-carousel">
+                        <?php $attachment_ids = $product->get_gallery_image_ids(); ?>
+                        <?php foreach ($attachment_ids as $attachment_id) : ?>
+                            <li>
+                                <a href="<?php echo wp_get_attachment_url($attachment_id) ?>">
+                                    <img src="<?php echo wp_get_attachment_url($attachment_id) ?>" />
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                    <ul id="flexslider-product-gallery" class="owl-carousel">
+                        <?php foreach ($attachment_ids as $attachment_id) : ?>
+                            <li>
+                                <a href="<?php echo wp_get_attachment_url($attachment_id) ?>">
+                                    <img src="<?php echo wp_get_attachment_url($attachment_id) ?>" />
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+
                 </div>
             </div>
             <div class="col-sm-7">
 
                 <div class="details wrapper">
-                    <p style="text-transform: uppercase;"><small>&#8220; <?php the_title() ?> &#8221;</small></p>
-                    <p class="price"><i class="fas fa-tags"></i> $ <?php echo wc_get_product(get_the_ID())->get_price(); ?></p>
+                    <p style="text-transform: uppercase;"><small>&#8220; <?php the_title(); ?> &#8221;</small></p>
+                    <p class="price"><i class="fas fa-tags"></i> $ <?php echo $product->get_price(); ?></p>
                     <form action="#">
-                        <p>
-                            <select name="#" id="#">
-                                <option value="#">Size</option>
-                                <option value="small">small</option>
-                                <option value="medium">medium</option>
-                                <option value="large">large</option>
-                            </select>
-                        </p>
-                        <p>
-                            <select name="#" id="#">
-                                <option value="#">Color</option>
-                                <option value="black">black</option>
-                                <option value="blue">blue</option>
-                                <option value="grey">green</option>
-                            </select>
-                        </p>
+                        <?php // Get product attributes
+                        $attributes = $product->get_attributes();
+                        if (!$attributes) {
+                            echo "No attributes";
+                        ?>
+                            <p>
+                                <select name="#" id="#">
+                                    <option value="freesize">FreeSize</option>
+                                </select>
+                            </p>
+                            <p>
+                                <select name="#" id="#">
+                                    <option value="no-color">No other color</option>
+                                </select>
+                            </p>
+                            <?php
+                        } else {
+                            // var_dump($product->get_attribute_taxonomy_names());
+                            foreach ($attributes as $attribute) {
+                                $koostis =  wc_get_product_terms($product->id, $attribute['name'], array('fields' => 'names'));
+                            ?>
+                                <p>
+                                    <select name="#" id="#">
+                                        <?php
+                                        foreach ($koostis as $pa) {
+                                        ?>
+                                            <option value="<?php echo $pa ?>"><?php echo $pa ?></option>
+                                        <?php
+                                        } ?>
+                                    </select>
+                                </p>
+                        <?php
+                            }
+                        }
+                        ?>
+
                         <div class="clearfix">
                             <div class="pull-left qty">
                                 <input type="text" class="qty" value="1">
@@ -112,16 +137,16 @@ get_header();
                     <div class="accordion" id="accordion2">
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <button class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#description" >
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#description">
                                     <i class="icon-layout theme"></i> Product Description
-                                </button>
+                                </a>
                             </div>
                             <div id="description" class="accordion-body collapse">
                                 <div class="-iaccordionnner">
                                     <?php the_content(); ?>
                                 </div>
                             </div>
-                          
+
                         </div>
                         <div class="accordion-group">
                             <div class="accordion-heading">
@@ -129,7 +154,7 @@ get_header();
                                     <i class="icon-layout theme"></i> Product Sizing
                                 </a>
                             </div>
-                            <div id="sizing" class="accordion-body collapse in">
+                            <div id="sizing" class="accordion-body collapse">
                                 <div class="accordion-inner">
                                     <table class="table table-striped table-hover">
                                         <thead>
@@ -140,21 +165,19 @@ get_header();
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Small</td>
-                                                <td>46 cm</td>
-                                                <td>71cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Medium</td>
-                                                <td>51</td>
-                                                <td>74</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Large</td>
-                                                <td>56</td>
-                                                <td>76</td>
-                                            </tr>
+                                            <?php
+                                            $children = $product->get_children();
+                                            foreach ($children as $value) {
+                                                $variation = $product->get_available_variation($value);
+                                            ?>
+                                                <tr>
+                                                    <td style="text-transform: uppercase;"><?php echo $variation['attributes']['attribute_pa_size'] ?></td>
+                                                    <td><?php echo $variation['dimensions']['width'] ?> cm</td>
+                                                    <td><?php echo $variation['dimensions']['height'] ?> cm</td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -174,15 +197,32 @@ get_header();
                     <hr />
                     <header>Wear it with</header>
                     <?php
-                    /**
-                     * Hook: woocommerce_after_single_product_summary.
-                     *
-                     * @hooked woocommerce_output_product_data_tabs - 10
-                     * @hooked woocommerce_upsell_display - 15
-                     * @hooked woocommerce_output_related_products - 20
-                     */
-                    do_action('ts_add_woocommerce_support');
+                    // $args = array(
+                    //     'posts_per_page' => 4,
+                    //     'columns'        => 4,
+                    //     'orderby'        => 'rand',
+                    //     'order'          => 'desc',
+                    // );
+
+                    // $args['related_products'] = array_filter(
+                    //     array_map('wc_get_product', wc_get_related_products($product->get_id(), $args['posts_per_page'],
+                    //      $product->get_upsell_ids()))
+                    //      , 'wc_products_array_filter_visible');
+
+                    // // var_dump($args['related_products'][0]);
+
+                    // $args['related_products'] = wc_products_array_orderby($args['related_products'], $args['orderby'], $args['order']);
+
+                    // // Set global loop values.
+                    // wc_set_loop_prop('name', 'related');
+                    // wc_set_loop_prop('columns', $args['columns']);
+
+                    // wc_get_template('single-product/related.php', $args);
                     ?>
+
+
+
+
                     <!-- <section class="row cross-product">
                         <article class=" col-sm-3 product-box">
                             <div class="product-inner">
@@ -255,3 +295,5 @@ get_header();
 
     </section>
 </div>
+
+<?php get_footer(); ?>

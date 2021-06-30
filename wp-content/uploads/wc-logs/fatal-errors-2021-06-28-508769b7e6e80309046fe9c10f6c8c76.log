@@ -22,3 +22,11 @@ Stack trace:
 
 2021-06-28T09:50:53+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress\wp-content\plugins\facebook-for-woocommerce\facebook-commerce.php on line 18
 
+2021-06-28T14:31:30+00:00 CRITICAL Uncaught Error: Call to a member function toArray() on null in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:106
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 106
+
