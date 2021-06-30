@@ -62,32 +62,45 @@
                 <div class="pull-right cart tright">
 
                     <div class="counter">
-                        <a href="javascript:void(0);"><i class="fa fa-shopping-cart" aria-hidden="true"></i></i></i> Your cart </a> : <span class="theme"><?php echo WC()->cart->get_total(); ?></span>
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            Your cart </a> :
+                        <span class="theme"><?php echo WC()->cart->get_total(); ?></span>
                     </div>
 
                     <div class="cartbubble">
                         <div class="arrow-box">
                             <?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-                                $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
-                                $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
-                                if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
-                                    $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+                                // lấy product trong cart
+                                $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                                // kiểm tra product có hay không
+                                if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && 
+                                    apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
+                                    // lấy permailink của product khi kiểm tra product có được hiển thị trong catalog không
+                                    $permalink = $_product->is_visible() ? $_product->get_permalink($cart_item) : '';
+                                    $product_permalink = apply_filters('woocommerce_cart_item_permalink', $permalink, $cart_item, $cart_item_key);
                             ?>
                                     <div class="clearfix">
-                                        <a href="#"><?php
-                                                    if (!$product_permalink) {
-                                                        echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;');
-                                                    } else {
-                                                        echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
-                                                    } ?>
-                                        </a> <span class="theme pull-right"><?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); 
-														?></span>
+                                        <a href="#">
+                                            <?php
+                                            // không có permailing thì không hiển thị link product và ngược lại
+                                            if (!$product_permalink) {
+                                                echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;');
+                                            } else {
+                                                echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
+                                            }
+                                            ?>
+                                        </a>
+                                        <span class="theme pull-right">
+                                            <?php // hiển thị giá của sản phẩm
+                                            echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); ?>
+                                        </span>
                                     </div>
 
                             <?php }
                             } ?>
                             <hr />
-
+                                
                             <div class="clearfix">
                                 TOTAL <span class="theme pull-right"><?php echo WC()->cart->get_total(); ?></span>
                             </div>
