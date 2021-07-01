@@ -1,0 +1,36 @@
+<<<<<<< HEAD
+2021-06-28T05:13:53+00:00 CRITICAL Uncaught Error: Call to a member function has_attributes() on string in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1794
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_default_product_tabs(Array)
+#1 C:\wamp64\www\wordpress\wp-includes\plugin.php(212): WP_Hook->apply_filters(Array, Array)
+#2 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\tabs\tabs.php(29): apply_filters('woocommerce_pro...', Array)
+#3 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1544): wc_get_template('single-product/...')
+#5 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_output_product_data_tabs('')
+#6 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#7 C:\wamp64\www\wordpress\wp-includ in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 1794
+
+2021-06-28T05:42:31+00:00 CRITICAL Uncaught Error: Call to a member function has_attributes() on string in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1794
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_default_product_tabs(Array)
+#1 C:\wamp64\www\wordpress\wp-includes\plugin.php(212): WP_Hook->apply_filters(Array, Array)
+#2 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\tabs\tabs.php(29): apply_filters('woocommerce_pro...', Array)
+#3 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1544): wc_get_template('single-product/...')
+#5 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_output_product_data_tabs('')
+#6 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#7 C:\wamp64\www\wordpress\wp-includ in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 1794
+
+2021-06-28T09:50:53+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress\wp-content\plugins\facebook-for-woocommerce\facebook-commerce.php on line 18
+
+2021-06-28T14:31:30+00:00 CRITICAL Uncaught Error: Call to a member function toArray() on null in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:106
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 106
+=======
+2021-06-28T17:40:44+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 3727
+>>>>>>> e6e5425bdb3121f88948107bce33c1e640c654bf
+

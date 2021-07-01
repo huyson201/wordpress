@@ -18,13 +18,16 @@
 defined( 'ABSPATH' ) || exit;
 
 global $product;
+// var_dump($product);
+// die();
 
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php wc_product_class( '', $product ); ?>>
+<li <?php
+wc_product_class( '', $product ); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

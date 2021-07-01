@@ -1,0 +1,88 @@
+2021-07-01T00:47:27+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variable::get_include_path() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:72
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(228): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 72
+
+2021-07-01T01:17:55+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variation() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:84
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 84
+
+2021-07-01T01:18:15+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variation() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:84
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 84
+
+2021-07-01T01:20:05+00:00 CRITICAL syntax error, unexpected end of file in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 244
+
+2021-07-01T03:13:02+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php:227
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 227
+
+2021-07-01T03:15:00+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_variation_sale_price() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:51
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(249): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 51
+
+2021-07-01T03:17:46+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_variation_sale_price() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:51
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(249): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 51
+
+2021-07-01T03:19:53+00:00 CRITICAL syntax error, unexpected '?>' in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 57
+
+2021-07-01T03:20:58+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_variation_sale_price() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:51
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(249): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 51
+
+2021-07-01T03:25:06+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_variation_regular_price() in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:51
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(249): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 51
+
+2021-07-01T08:43:59+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variable as array in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php:77
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(240): wc_get_template('single-product/...', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#4 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 77
+

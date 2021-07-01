@@ -16,6 +16,41 @@ add_action('after_setup_theme', 'ts_add_woocommerce_support');
  * disable woocommerce styles
  */
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
+
+/**
+ * tender shop script
+ */
+function ts_scripts()
+{
+    /**
+     * ajax jquery
+     */
+    wp_enqueue_script('ajax-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', array(), '1.8.2', true);
+
+    /**
+     * https://maps.googleapis.com/maps/api/js?sensor=false
+     */
+    wp_enqueue_script('map-script', 'https://maps.googleapis.com/maps/api/js?sensor=false', array(), false, true);
+
+    /**
+     * scripts
+     */
+
+    wp_enqueue_script('jquery-tweet', get_template_directory_uri() . '/js/jquery.tweet.js', array(), '', true);
+    wp_enqueue_script('jquery-my',"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js");
+    wp_enqueue_script('js-bootstrap-head', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true);
+    wp_enqueue_script('js-bootstrap-foot', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '', true);
+    wp_enqueue_script('js-shop', get_template_directory_uri() . '/js/shop.js', array(), false, true);
+    wp_enqueue_script('js-script', get_template_directory_uri() . '/js/script.js', array(), false, true);
+
+
+    wp_enqueue_script('carousel-min-script', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js',array(),'',true);
+    wp_enqueue_script('owl-carousel-script', get_template_directory_uri() . '/js/owl-carousel.js', array(), '', true);
+}
+
+add_action('wp_enqueue_scripts', 'ts_scripts');
+
 /**
  * tender shop styles
  */
@@ -37,42 +72,22 @@ function ts_styles()
      * add Font awesome link
      */
 
-    wp_enqueue_style("font-awesome",  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+    wp_enqueue_style("font-awesome",  "https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+
     /**
      * Add style file
      */
     wp_enqueue_style("main-style", get_template_directory_uri() . '/css/style.css');
     wp_enqueue_style("styles", get_template_directory_uri() . '/style.css');
+
+
+    /**
+     * Add cdn carousel min
+     */
+    wp_enqueue_style("carousel-min-style", 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css');
 }
 
 add_action('wp_enqueue_scripts', 'ts_styles');
-
-/**
- * tender shop script
- */
-function ts_scripts()
-{
-    /**
-     * ajax jquery
-     */
-    wp_enqueue_script('ajax-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', array(), '1.8.2', true);
-
-    /**
-     * https://maps.googleapis.com/maps/api/js?sensor=false
-     */
-    wp_enqueue_script('map-script', 'https://maps.googleapis.com/maps/api/js?sensor=false', array(), false, true);
-
-    /**
-     * scripts
-     */
-    wp_enqueue_script('jquery-tweet', get_template_directory_uri() . '/js/jquery.tweet.js', array(), false, true);
-    wp_enqueue_script('js-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true);
-    wp_enqueue_script('js-shop', get_template_directory_uri() . '/js/shop.js', array(), false, true);
-    wp_enqueue_script('js-script', get_template_directory_uri() . '/js/script.js', array(), false, true);
-}
-
-add_action('wp_enqueue_scripts', 'ts_scripts');
-
 
 /**
  *  register nav menu
@@ -163,3 +178,6 @@ function ts_slider_post_type()
     register_post_type('brand', $args2);
 }
 add_action('init', 'ts_slider_post_type');
+
+
+ 

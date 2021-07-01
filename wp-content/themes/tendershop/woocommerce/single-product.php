@@ -17,46 +17,253 @@
  */
 
 if (!defined('ABSPATH')) {
-	exit; // Exit if accessed directly
+    exit; // Exit if accessed directly
 }
 
-get_header('shop'); ?>
+get_header();
+$product = wc_get_product(get_the_ID());
+$children = $product->get_children();
+?>
 
-	<?php
-	/**
-	 * woocommerce_before_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-	 * @hooked woocommerce_breadcrumb - 20
-	 */
-	do_action('woocommerce_before_main_content');
-	?>
-		<?php while (have_posts()) : ?>
-			<?php the_post(); ?>
+<div class="container">
 
-			<?php wc_get_template_part('content', 'single-product'); ?>
+    <section class="single">
+        <div class="row">
+            <header class="col-sm-12 prime">
+                <h3>
+                    <?php
+                    /**
+                     * woocommerce_before_main_content hook.
+                     *
+                     * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+                     * @hooked woocommerce_breadcrumb - 20
+                     */
+                    do_action('woocommerce_before_main_content');
+                    ?>
+                </h3>
+            </header>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
 
-		<?php endwhile; // end of the loop. 
-		?>
-	<?php
-	/**
-	 * woocommerce_after_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-	 */
-	do_action('woocommerce_after_main_content');
-	?>
+                <div class="wrap">
+                    <ul id="owl-carousel-slider" class="owl-carousel">
+                        <?php
+                        $attachment_ids = $product->get_gallery_image_ids();
+                        ?>
 
-	<?php
-	/**
-	 * woocommerce_sidebar hook.
-	 *
-	 * @hooked woocommerce_get_sidebar - 10
-	 */
-	do_action('woocommerce_sidebar');
-	?>
+                        <li><a href="#"><img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" alt="<?php the_title(); ?>" /></a></li>
 
-<?php
-get_footer('shop');
+                        <?php
+                        foreach ($attachment_ids as $attachment_id) {
+                        ?>
+                            <li><a href="<?php echo wp_get_attachment_url($attachment_id) ?>"><img src="<?php echo wp_get_attachment_url($attachment_id) ?>" /></a></li>
 
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                    <ul id="owl-carousel-slider-gallery" class="owl-carousel">
+                        <?php
+                        foreach ($attachment_ids as $attachment_id) {
+                        ?>
+                            <li><a href="<?php echo wp_get_attachment_url($attachment_id) ?>"><img src="<?php echo wp_get_attachment_url($attachment_id) ?>" /></a></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm-7">
+
+                <div class="details wrapper">
+                    <p style="text-transform: uppercase;"><small>&#8220; <?php the_title(); ?> &#8221;</small></p>
+                    <p class="price"><i class="fas fa-tags"></i>
+                        <span class="price-old">
+                            <?php
+                            if ($product->is_on_sale() && count($children) > 0) {
+                                echo '$' . $product->get_available_variation($children[0])['display_regular_price'];
+                            }
+                            ?>
+                        </span>
+                        <span class="price-new"> $ <?php echo $product->get_price(); ?></span>
+                    </p>
+                    <form action="#">
+                        <?php // Get product attributes
+                        $attributes = $product->get_attributes();
+                        if (!$attributes) {
+                        ?>
+                            <p>
+                                <select name="#" id="#">
+                                    <option value="freesize">FreeSize</option>
+                                </select>
+                            </p>
+                            <p>
+                                <select name="#" id="#">
+                                    <option value="no-color">No other color</option>
+                                </select>
+                            </p>
+                            <?php
+                        } else {
+                            // var_dump($product->get_attribute_taxonomy_names());
+                            foreach ($attributes as $attribute) {
+                                $koostis =  wc_get_product_terms($product->id, $attribute['name'], array('fields' => 'names'));
+                                if (!empty($koostis)) {
+                            ?>
+                                    <p>
+                                        <select name="#" id="#">
+                                            <?php
+                                            foreach ($koostis as $pa) {
+                                            ?>
+                                                <option value="<?php echo $pa ?>"><?php echo $pa ?></option>
+                                            <?php
+                                            } ?>
+                                        </select>
+                                    </p>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+
+                        <div class="clearfix">
+                            <div class="pull-left qty">
+                                <input type="text" class="qty" id="qty" <?php if ($product->get_stock_quantity() > 0) { ?> value="1" <?php } else { ?> value="0" <?php }  ?>">
+                                <input type="hidden" name="product-instock" id="product-instock" value="<?php echo $product->get_stock_quantity() ?>">
+                                <div class="total">
+                                    <a href="#" onclick="plus();"><i class="fas fa-plus-square"></i></a>
+                                    <a href="#" onclick="minus();"><i class="fas fa-minus-square"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left"><a href="<?php bloginfo('url'); ?>?add-to-cart=<?php the_ID(); ?>" class="btn theme">Add to Cart</a></div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6 decidernote">Hard to decide? Ask you friends :)</div>
+                        <div class="col-sm-6 decider">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-google-plus"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="accordion" id="accordion2">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#description">
+                                    <i class="icon-layout theme"></i> Product Description
+                                </a>
+                            </div>
+                            <div id="description" class="accordion-body collapse">
+                                <div class="-iaccordionnner">
+                                    <?php the_content(); ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#sizing">
+                                    <i class="icon-layout theme"></i> Product Sizing
+                                </a>
+                            </div>
+                            <div id="sizing" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>SIZE</th>
+                                                <th>WIDTH</th>
+                                                <th>LENGTH</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($children as $value) {
+                                                $variation = $product->get_available_variation($value);
+                                                if (!empty($variation['attributes']['attribute_pa_size'])) {
+                                            ?>
+                                                    <tr>
+                                                        <td style="text-transform: uppercase;"><?php echo $variation['attributes']['attribute_pa_size'] ?></td>
+                                                        <td><?php echo $variation['dimensions']['width'] ?> cm</td>
+                                                        <td><?php echo $variation['dimensions']['height'] ?> cm</td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cross-wrapper">
+                    <hr />
+                    <header>Wear it with</header>
+                    <?php
+
+                    $args = array(
+                        'posts_per_page' => 4,
+                        'columns'        => 4,
+                        'orderby'        => 'rand',
+                        'order'          => 'desc',
+                    );
+                    //array_map : mảng callback. thực hiện lấy product related
+                    // Truyền biến related_products sang related.php
+                    $args['related_products'] = array_filter(
+                        array_map('wc_get_product', wc_get_related_products($product->get_id(), $args['posts_per_page'])),
+                        'wc_products_array_filter_visible'
+                    );
+                    // var_dump(wc_get_related_products($product->get_id(), $args['posts_per_page']));
+                    // die();
+                    $args['related_products'] = wc_products_array_orderby($args['related_products'], $args['orderby']);
+
+                    // Set global loop values.
+                    // wc_set_loop_prop('name', 'related');
+                    // wc_set_loop_prop('columns', $args['columns']);
+                    wc_get_template('single-product/related.php', $args);
+                    ?>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<script>
+    function plus() {
+        var plus = document.getElementById('qty');
+        const instock = document.getElementById('product-instock');
+        if (plus.value == instock.value || instock.value == 0) {
+            alert("The product quantity in stock is not enough");
+        } else {
+            plus.value++;
+        }
+        plus.innerHTML = plus.value;
+    }
+
+    function minus() {
+        var plus = document.getElementById('qty');
+        if (plus.value <= 1) {
+            alert("The quantity value can't equal 0");
+        } else {
+            plus.value--;
+        }
+        plus.innerHTML = plus.value;
+    }
+</script>
+<?php get_footer(); ?>

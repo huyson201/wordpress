@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Related Products
  *
@@ -15,40 +16,81 @@
  * @version     3.9.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
-if ( $related_products ) : ?>
+if ($related_products) : ?>
 
-	<section class="related products">
+	<section class="row cross-product">
 
-		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
 
-		if ( $heading ) :
+		<?php foreach ($related_products as $related_product) :
+			// var_dump($related_product);
+		?>
+			<?php
+			$post_object = get_post($related_product->get_id());
+			// var_dump($post_object);
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
-		<?php endif; ?>
-		
-		<?php woocommerce_product_loop_start(); ?>
+			<article class=" col-sm-3 product-box">
+				<div class="product-inner">
+					<?php if ($related_product->is_on_sale()) : ?>
+						<span class="onsale">SALE</span>
+					<?php endif; ?>
+					<div class="view view-thumb">
+						<div class="image"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post_object->ID))[0]; ?>" alt="" /></div>
+						<div class="mask">
+							<p><?php echo $post_object->post_content ?></p>
+							<a href="<?php echo $related_product->get_permalink(); ?>" class="info">View</a>
+							<a href="<?php bloginfo('url'); ?>?add-to-cart=<?php echo $post_object->ID; ?>" class="info">Buy</a>
+						</div>
+					</div>
+					<h2 class="price">
+						<?php if ($related_product->is_on_sale()) : ?>
+							<?php
+							$children = $related_product->get_children();
+							if (count($children) > 0) {
+							?>
+								<span class="price-old"><?php echo '$' . $related_product->get_variation_regular_price(); ?></span>
+								<span class="price-new">
+									<?php
+									$min = $related_product->get_variation_sale_price('min');
+									$max = $related_product->get_variation_sale_price('max');
+									if ($min != $max) {
+										echo '$' . $min . ' - ' . '$' . $max;
+									} else {
+										echo '$' . $min;
+									}
+									?>
 
-			<?php foreach ( $related_products as $related_product ) : ?>
+								</span>
+							<?php
+							} else {
+							?>
+								<span class="price-old"><?php echo '$' . $related_product->get_regular_price(); ?></span>
+								<span class="price-new"><?php echo '$' . $related_product->get_price(); ?></span>
+							<?php
+							}
+							?>
 
-					<?php
-					$post_object = get_post( $related_product->get_id() );
+						<?php else : ?>
+							<span class="price-new"><?php echo '$'. $related_product->get_price();  ?></span>
+						<?php endif; ?>
+					</h2>
+					<p><a href="<?php echo $related_product->get_permalink(); ?>"><?php echo $post_object->post_title ?></a></p>
+				</div>
+			</article>
 
-					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+			<?php
+			//đặt lại post là related
+			setup_postdata($GLOBALS['post'] = &$post_object) // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+			// wc_get_template_part('content', 'product');
+			?>
 
-					wc_get_template_part( 'content', 'product' );
-					?>
-
-			<?php endforeach; ?>
-
-		<?php woocommerce_product_loop_end(); ?>
+		<?php endforeach; ?>
 
 	</section>
-	<?php
+<?php
 endif;
 
 wp_reset_postdata();
