@@ -636,6 +636,14 @@ h2.price .price-old {
     margin-right: 5px
 }
 
+p.price .price-old {
+    text-decoration: line-through;
+    color: red;
+    border-right: 1px solid #ddd;
+    padding-right: 10px;
+    margin-right: 5px
+}
+
 .feat .tab-content .wrap {
     margin-bottom: 30px
 }

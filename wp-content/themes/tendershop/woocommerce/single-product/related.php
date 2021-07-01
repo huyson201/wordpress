@@ -41,37 +41,53 @@ if ($related_products) : ?>
 						<div class="image"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post_object->ID))[0]; ?>" alt="" /></div>
 						<div class="mask">
 							<p><?php echo $post_object->post_content ?></p>
-							<a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+							<a href="<?php echo $related_product->get_permalink(); ?>" class="info">View</a>
+							<a href="<?php bloginfo('url'); ?>?add-to-cart=<?php echo $post_object->ID; ?>" class="info">Buy</a>
 						</div>
 					</div>
 					<h2 class="price">
 						<?php if ($related_product->is_on_sale()) : ?>
-							<span class="price-old"> $<?php echo $related_product->get_regular_price(); ?>
-							</span><span class="price-new">$<?php echo $related_product->get_sale_price(); ?></span>
+							<?php
+							$children = $related_product->get_children();
+							if (count($children) > 0) {
+							?>
+								<span class="price-old"><?php echo '$' . $related_product->get_variation_regular_price(); ?></span>
+								<span class="price-new">
+									<?php
+									$min = $related_product->get_variation_sale_price('min');
+									$max = $related_product->get_variation_sale_price('max');
+									if ($min != $max) {
+										echo '$' . $min . ' - ' . '$' . $max;
+									} else {
+										echo '$' . $min;
+									}
+									?>
+
+								</span>
+							<?php
+							} else {
+							?>
+								<span class="price-old"><?php echo '$' . $related_product->get_regular_price(); ?></span>
+								<span class="price-new"><?php echo '$' . $related_product->get_price(); ?></span>
+							<?php
+							}
+							?>
+
 						<?php else : ?>
-							<span class="price-new"><?php echo $related_product->get_price_html(); ?></span>
+							<span class="price-new"><?php echo '$'. $related_product->get_price();  ?></span>
 						<?php endif; ?>
 					</h2>
-					<p><a href="<?php the_permalink(); ?>"><?php echo $post_object->post_title ?></a></p>
+					<p><a href="<?php echo $related_product->get_permalink(); ?>"><?php echo $post_object->post_title ?></a></p>
 				</div>
 			</article>
-			<?php
-			//  woocommerce_product_loop_start(); 
-			// var_dump(woocommerce_product_loop_start());
-			?>
-
 
 			<?php
-
-			// setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
-
+			//đặt lại post là related
+			setup_postdata($GLOBALS['post'] = &$post_object) // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 			// wc_get_template_part('content', 'product');
 			?>
 
 		<?php endforeach; ?>
-
-		<?php //woocommerce_product_loop_end(); 
-		?>
 
 	</section>
 <?php
