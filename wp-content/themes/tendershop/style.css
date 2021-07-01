@@ -21,6 +21,33 @@ Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, 
     font-size: 30px;
 }
 
-/* .page-template-default .woocommerce .container-checkout{
- background: #d1e4dd !important;
-} */
+#order_review_heading{
+    font-size: 30px;
+}
+
+#order_review{
+    line-height: 3;
+}
+
+#order_review .shop_table .cart_item, .cart-subtotal, .order-total, #payment{
+    font-size: 20px;
+}
+
+#order_review table, #payment .wc_payment_methods .wc_payment_method label{
+    width: 100%;
+}
+
+#order_review table tbody{
+    border-bottom: 3px solid black;
+}
+
+#order_review table tfoot .cart-subtotal{
+    border-bottom: 2px solid black;
+}
+
+#place_order{
+    width: 100%;
+    background: #e55137;
+    font-weight: bold;
+    font-size: 25px;
+}

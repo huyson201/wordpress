@@ -25,9 +25,7 @@ if (!wc_coupons_enabled()) { // @codingStandardsIgnoreLine.
 
 <style>
 .woocommerce-form-coupon-toggle{
-	border: 2px solid black;
 	margin-top: 20px;
-	padding: 20px;
 }
 </style>
 

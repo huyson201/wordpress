@@ -30,10 +30,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 
-
-
-
-<div class="container container-checkout">
+<div class="container">
  
 	<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 		<div class="col-md-6 custom_form">

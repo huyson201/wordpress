@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<div class="woocommerce-order">
+<div class="container woocommerce-order">
 
 	<?php
 	if ( $order ) :
