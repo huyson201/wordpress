@@ -21,12 +21,12 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
+
 $product = wc_get_product(get_the_ID());
 $children = $product->get_children();
 ?>
-
+<?php wc_get_notices(); ?>
 <div class="container">
-
     <section class="single">
         <div class="row">
             <header class="col-sm-12 prime">
@@ -136,7 +136,7 @@ $children = $product->get_children();
                                     <a href="#" onclick="minus();"><i class="fas fa-minus-square"></i></a>
                                 </div>
                             </div>
-                            <div class="pull-left"><a href="<?php bloginfo('url'); ?>?add-to-cart=<?php the_ID(); ?>" class="btn theme">Add to Cart</a></div>
+                            <div class="pull-left"><a href="<?php the_permalink(); ?>?add-to-cart=<?php the_ID(); ?>" class="btn theme">Add to Cart</a></div>
                         </div>
                     </form>
                     <hr>

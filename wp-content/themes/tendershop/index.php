@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<?php wc_get_notices() ?>
 <div class="homepagecontainer">
     <?php get_template_part('slider');?>
     <div class="clearfix"></div>
