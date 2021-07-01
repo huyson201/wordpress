@@ -15,7 +15,6 @@
     <link rel="icon" href="img/hsfavicon.png">
     <?php wp_head(); ?>
 
-
     <script type="text/javascript">
         WebFontConfig = {
             google: {
@@ -88,7 +87,9 @@
                             <hr />
                             <div class="clearfix">
                                 <a href="javascript:void(0)" id="closeit">Close</a>
-                                <a href="checkout.html" class="btn theme btn-mini pull-right">Checkout</a>
+                                <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="btn theme alt wc-forward">
+                                    <?php esc_html_e('Checkout', 'woocommerce'); ?>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -131,3 +132,5 @@
             </div>
         </div>
     </div>
+
+    

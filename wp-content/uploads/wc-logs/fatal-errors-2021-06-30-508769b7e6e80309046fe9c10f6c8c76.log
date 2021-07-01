@@ -1,0 +1,2 @@
+2021-06-30T15:21:50+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\checkout\form-billing.php on line 38
+

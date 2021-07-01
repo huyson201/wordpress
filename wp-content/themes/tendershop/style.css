@@ -7,4 +7,20 @@ Description: create a theme for woocommerce
 Text Domain: http://localhost/wordpress
 Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready
 */
+.woocommerce-billing-fields__field-wrapper p.form-row label{
+    display: block;
+    font-size: 18px;
+}
 
+.woocommerce-billing-fields__field-wrapper p.form-row span input{
+    width: 100%;
+    height: 50px;
+}
+
+.woocommerce-billing-fields h3{
+    font-size: 30px;
+}
+
+/* .page-template-default .woocommerce .container-checkout{
+ background: #d1e4dd !important;
+} */
