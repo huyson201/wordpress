@@ -21,11 +21,10 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
-
+do_action('woocommerce_before_single_product');
 $product = wc_get_product(get_the_ID());
 $children = $product->get_children();
 ?>
-<?php wc_get_notices(); ?>
 <div class="container">
     <section class="single">
         <div class="row">
@@ -89,8 +88,9 @@ $children = $product->get_children();
                         </span>
                         <span class="price-new"> $ <?php echo $product->get_price(); ?></span>
                     </p>
-                    <form action="#">
-                        <?php // Get product attributes
+                    <form class="cart" action="#" method="post">
+                        <?php
+                        // Get product attributes
                         $attributes = $product->get_attributes();
                         if (!$attributes) {
                         ?>
@@ -129,16 +129,30 @@ $children = $product->get_children();
 
                         <div class="clearfix">
                             <div class="pull-left qty">
-                                <input type="text" class="qty" id="qty" <?php if ($product->get_stock_quantity() > 0) { ?> value="1" <?php } else { ?> value="0" <?php }  ?>">
-                                <input type="hidden" name="product-instock" id="product-instock" value="<?php echo $product->get_stock_quantity() ?>">
+                                <?php
+                                $value = 0;
+                                if ($product->get_stock_quantity() > 0) {
+                                    $value = $product->get_stock_quantity();
+                                } else if ($product->is_in_stock()) {
+                                    $value = 999;
+                                } else {
+                                    $value = 0;
+                                } ?>
+                                <input type="text" class="qty" name="quantity" id="qty" 
+                                <?php if ($product->get_stock_quantity() > 0 || $product->is_in_stock()) { ?> value="1" <?php } else { ?> value="0" <?php }  ?>">
+                                <input type="hidden" name="product-instock" id="product-instock" value="<?php echo $value ?>">
                                 <div class="total">
-                                    <a href="#" onclick="plus();"><i class="fas fa-plus-square"></i></a>
-                                    <a href="#" onclick="minus();"><i class="fas fa-minus-square"></i></a>
+                                    <a href="javascript:void(0);" onclick="plus();"><i class="fas fa-plus-square"></i></a>
+                                    <a href="javascript:void(0);" onclick="minus();"><i class="fas fa-minus-square"></i></a>
                                 </div>
                             </div>
-                            <div class="pull-left"><a href="<?php the_permalink(); ?>?add-to-cart=<?php the_ID(); ?>" class="btn theme">Add to Cart</a></div>
+                            <div class="pull-left">
+                                <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" 
+                                class="btn theme">Add to Cart</button>
+                            </div>
                         </div>
                     </form>
+                    <?php do_action('woocommerce_after_add_to_cart_form'); ?>
                     <hr>
                     <div class="row">
                         <div class="col-sm-6 decidernote">Hard to decide? Ask you friends :)</div>
@@ -254,6 +268,7 @@ $children = $product->get_children();
             plus.value++;
         }
         plus.innerHTML = plus.value;
+
     }
 
     function minus() {

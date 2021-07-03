@@ -19,9 +19,9 @@
 defined('ABSPATH') || exit;
 
 ?>
-<?php do_action('woocommerce_before_cart'); ?>
+<?php
+do_action('woocommerce_before_cart'); ?>
 <div class="container">
-	
 	<section class="order">
 		<div class="row standard">
 			<header class="col-sm-12 prime">
@@ -56,7 +56,7 @@ defined('ABSPATH') || exit;
 												<div class="cart-img pull-left hidden-phone">
 													<?php
 													// get image 
-													$thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(array(100,78.89)), $cart_item, $cart_item_key);
+													$thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(array(100, 78.89)), $cart_item, $cart_item_key);
 													if (!$product_permalink) {
 														echo $thumbnail;
 													} else {
@@ -66,40 +66,50 @@ defined('ABSPATH') || exit;
 												</div>
 												<div class="item pull-left">
 													<?php
-													// remove item
-													echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+													// xoá sản phẩm
+													echo apply_filters(
 														'woocommerce_cart_item_remove_link',
 														sprintf(
-															'<a href="%s" aria-label="%s" data-product_id="%s" data-product_sku="%s"><i class="icon-cancel-circled"></i></a>',
+															'<a href="%s" ><i class="icon-cancel-circled"></i></a>',
 															esc_url(wc_get_cart_remove_url($cart_item_key)),
-															esc_html__('Remove this item', 'woocommerce'),
-															esc_attr($product_id),
-															esc_attr($_product->get_sku())
 														),
 														$cart_item_key
 													);
 													?>
 													<?php
 													if (!$product_permalink) {
-														echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;');
+														echo apply_filters(
+															'woocommerce_cart_item_name',
+															$_product->get_name(),
+															$cart_item,
+															$cart_item_key
+														) . '&nbsp;';
 													} else {
-														echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
+														echo apply_filters(
+															'woocommerce_cart_item_name',
+															sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()),
+															$cart_item,
+															$cart_item_key
+														);
 													}
-
-													do_action('woocommerce_after_cart_item_name', $cart_item, $cart_item_key);
-
-													// Meta data.
-													echo wc_get_formatted_cart_item_data($cart_item); // PHPCS: XSS ok.
-
 													// Backorder notification.
 													if ($_product->backorders_require_notification() && $_product->is_on_backorder($cart_item['quantity'])) {
-														echo wp_kses_post(apply_filters('woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__('Available on backorder', 'woocommerce') . '</p>', $product_id));
+														echo apply_filters(
+															'woocommerce_cart_item_backorder_notification',
+															'<p class="backorder_notification">' . esc_html__('Available on backorder', 'woocommerce') . '</p>',
+															$product_id
+														);
 													}
 													?>
 												</div>
 											</td>
 											<td><i><?php
-													echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key); // PHPCS: XSS ok.
+													echo apply_filters(
+														'woocommerce_cart_item_price',
+														WC()->cart->get_product_price($_product),
+														$cart_item,
+														$cart_item_key
+													);
 													?></i></td>
 											<td><?php
 												if ($_product->is_sold_individually()) {
@@ -107,28 +117,32 @@ defined('ABSPATH') || exit;
 												} else {
 													$product_quantity = woocommerce_quantity_input(
 														array(
-															'input_name'   => "cart[{$cart_item_key}][qty]",
-															'input_value'  => $cart_item['quantity'],
-															'max_value'    => $_product->get_max_purchase_quantity(),
-															'min_value'    => '0',
-															'product_name' => $_product->get_name(),
-															'classes' => array( 'my-qty-input')
+															'input_name'   => "cart[{$cart_item_key}][qty]",		   // tên input	
+															'input_value'  => $cart_item['quantity'],		 		  // số lượng của item
+															'max_value'    => $_product->get_max_purchase_quantity(), // số lượng sản phẩm còn trong shop
+															'min_value'    => '1',
+															'product_name' => $_product->get_name(),				  // tên sản phẩm	
+															'classes' => array('my-qty-input')						  // gắn các class cho input
 														),
 														$_product,
-														false
+														true
 													);
 												}
-												echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item); // PHPCS: XSS ok.
+												echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item);
 												?></td>
 											<td><strong><?php
-														echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // PHPCS: XSS ok.
+														echo apply_filters(
+															'woocommerce_cart_item_subtotal',
+															WC()->cart->get_product_subtotal($_product, $cart_item['quantity']),
+															$cart_item,
+															$cart_item_key
+														);
 														?></strong></td>
 										</tr>
 								<?php
 									}
 								}
 								?>
-								<?php do_action( 'woocommerce_cart_contents' ); ?>
 								<tr>
 									<td colspan="3">
 										<div class="item">Total</div>
@@ -140,14 +154,13 @@ defined('ABSPATH') || exit;
 						<div class="row cart-pay">
 							<div class="col-sm-6">Additional comments (optional) <br /><textarea rows="3"></textarea> </div>
 							<div class="col-sm-6 cart-checkout">
-								<button  type="submit" class="btn" name="update_cart" ><i class="fa fa-refresh"></i> <?php esc_attr_e( 'Update cart', 'woocommerce' ); ?> </button>
-								<?php do_action( 'woocommerce_cart_actions' ); ?>
-
-							<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
-				
-							<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
-							<?php do_action( 'woocommerce_after_cart_totals' ); ?>
-							 <!-- <button class="btn theme"><i class="icon-check"></i> Check Out </button></div> -->
+								<button type="submit" class="btn" name="update_cart"><i class="fas fa-sync-alt"></i>
+									Update Cart</button>
+								<?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
+								<a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="btn theme alt wc-forward">
+									<i class="icon-check"></i> Checkout
+								</a>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -155,4 +168,4 @@ defined('ABSPATH') || exit;
 		</div>
 	</section>
 </div>
-<?php do_action( 'woocommerce_after_cart' ); ?>
+<?php do_action('woocommerce_after_cart'); ?>

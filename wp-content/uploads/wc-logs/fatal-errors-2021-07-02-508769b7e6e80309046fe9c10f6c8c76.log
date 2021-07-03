@@ -1,0 +1,9 @@
+2021-07-02T21:43:06+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function apply_filters(), 1 passed in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\cart\cart.php on line 71 and exactly 2 expected in C:\wamp64\www\wordpress\wp-includes\plugin.php:187
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\cart\cart.php(71): apply_filters('woocommerce_car...')
+#1 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-cart.php(99): wc_get_template('cart/cart.php')
+#3 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(72): WC_Shortcode_Cart::output(Array)
+#4 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(85): WC_Shortcodes::shortcode_wrapper(Array)
+#5 C:\wamp64\www\wordpress\wp-includes\shortcodes.php(343): WC_Shortcodes::cart('', '', 'woocomm in C:\wamp64\www\wordpress\wp-includes\plugin.php on line 187
+

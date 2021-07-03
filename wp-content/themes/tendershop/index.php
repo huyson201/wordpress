@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php wc_get_notices() ?>
+<?php do_action( 'woocommerce_before_single_product' ); ?>
 <div class="homepagecontainer">
     <?php get_template_part('slider');?>
     <div class="clearfix"></div>

@@ -86,3 +86,21 @@ Stack trace:
 #5 {main}
   thrown in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product\related.php on line 77
 
+2021-07-01T20:45:15+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_filter(), 1 passed in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 140 and at least 2 expected in C:\wamp64\www\wordpress\wp-includes\plugin.php:114
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(140): add_filter('woocommerce_loo...')
+#1 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-includes\plugin.php on line 114
+
+2021-07-01T20:46:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function apply_filters(), 1 passed in C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php on line 140 and exactly 2 expected in C:\wamp64\www\wordpress\wp-includes\plugin.php:187
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\themes\tendershop\woocommerce\single-product.php(140): apply_filters('woocommerce_loo...')
+#1 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#3 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-includes\plugin.php on line 187
+
