@@ -19,6 +19,7 @@
 defined('ABSPATH') || exit;
 
 get_header('shop');
+do_action('woocommerce_before_single_product');
 
 /**
  * Hook: woocommerce_before_main_content.
@@ -42,8 +43,10 @@ get_header('shop');
 	?>
 </header>
 <?php
+
 if (woocommerce_product_loop()) : ?>
 	<?php if (is_shop()) : ?>
+		
 		<div class="container">
 			<div class="row">
 				<header class="col-sm-12 prime mt-3">
@@ -126,7 +129,7 @@ if (woocommerce_product_loop()) : ?>
 											<div class="image"><img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" alt="<?php the_title(); ?>" alt="" /></div>
 											<div class="mask">
 												<?php the_content() ?>
-												<a href="<?php the_permalink(); ?>" class="info">View</a> <a href="<?php bloginfo('url'); ?>?add-to-cart=<?php the_ID(); ?>" class="info">Buy</a>
+												<a href="<?php the_permalink(); ?>" class="info">View</a> <a href="<?php get_permalink('shop');?>?add-to-cart=<?php the_ID(); ?>" class="info">Buy</a>
 											</div>
 										</div>
 										<h2 class="price">
