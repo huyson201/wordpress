@@ -136,7 +136,7 @@ if (woocommerce_product_loop()) : ?>
 											<?php if ($product->is_on_sale()) : ?>
 												<span class="price-old">$<?php echo $product->get_regular_price(); ?></span> <span class="price-new">$<?php echo $product->get_sale_price(); ?></span>
 											<?php else : ?>
-												<span class="price-new"><?php echo $product->get_price_html(); ?>$</span>
+												<span class="price-new"><?php echo $product->get_price_html(); ?></span>
 											<?php endif; ?>
 										</h2>
 										<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
